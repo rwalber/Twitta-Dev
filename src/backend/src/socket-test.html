@@ -1,0 +1,26 @@
+<html>
+    <head>
+
+    </head>
+
+    <body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.1/socket.io.js" integrity="sha512-AcZyhRP/tbAEsXCCGlziPun5iFvcSUpEz2jKkx0blkYKbxU81F+iq8FURwPn1sYFeksJ+sDDrI5XujsqSobWdQ==" crossorigin="anonymous"></script>
+
+        <script type="text/javascript">
+            var socket = io('http://localhost:3000');
+
+            socket.on('Tweet', function(data) {
+                console.log(data);
+            });
+
+            socket.on('Like', function(data) {
+                console.log(data);
+            });
+
+            socket.on('New Coment', function(data) {
+                console.log(data);
+            });
+
+        </script>
+    </body>
+</html>
