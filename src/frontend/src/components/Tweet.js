@@ -62,7 +62,7 @@ function Tweet({ tweet, socket }) {
 
                     <p className="information">
                         <p className="likes">
-                            { TweetContent.likes } curtidas
+                            { TweetContent.likes } likes
                         </p>
                         
                         <p className="coments">

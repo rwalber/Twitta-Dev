@@ -4,7 +4,13 @@ Project in development
 
 ##### Technologies used: ReactJS and NodeJS.
 
-![Screenshot](assets/first.png)
+![Screenshot](assets/1.png)
+
+![Screenshot](assets/2.png)
+
+![Screenshot](assets/3.png)
+
+![Screenshot](assets/4.png)
 
 ## Build project
 
