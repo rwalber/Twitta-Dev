@@ -1,0 +1,78 @@
+.listComents {
+    margin: -25px 0 20px 0;
+    border-radius: 30px;
+    background-color: white;
+    width: 35em;
+    max-height: 15em;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 25px;
+}
+
+.listComents .ownComents {
+    overflow-y: scroll;
+    text-align: justify;
+    padding-right: 15px;
+    width: 35em;
+}
+
+.listComents .ownComents .comentContent {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    margin-bottom: 8px;
+    flex-direction: row;
+    font-size: 12px;
+}
+
+.listComents .ownComents .comentContent .avatar img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.listComents .ownComents .comentContent .avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    
+    margin: 0px 8px 0 10px;
+
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+
+.listComents .ownComents .comentContent .text {
+    width: 90%;
+}
+
+.listComents .ownComents .comentContent .text .author {
+    font-weight: bold;
+}
+
+hr {
+    margin-top: 2px;
+}
+
+.newComent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+}
+
+.newComent input {
+    width: 90%;
+    background: #fff;
+    border: 1px solid black;
+    border-radius: 30px;
+    height: 40px;
+    padding: 0 15px;
+    font-size: 14px;
+    color: black;
+    margin-bottom: 10px;
+}

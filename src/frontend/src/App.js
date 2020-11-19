@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Login from './pages/Login';
 import Timeline from './pages/Timeline';
+import Register from './pages/Register';
 
 import './styles/Global.css';
 
@@ -13,8 +14,9 @@ function App() {
         
         <Switch>
 
-          <Route path="/" exact component={ Login } />
-          <Route path="/timeline" component={ Timeline } />
+          <Route path="/" exact component = { Login } />
+          <Route path="/timeline" component = { Timeline } />
+          <Route path="/register" component = { Register } />
 
         </Switch>
       

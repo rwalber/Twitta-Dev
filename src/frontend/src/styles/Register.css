@@ -1,30 +1,21 @@
-.thumb img {
-    width: 20%;
-}
-
-.content {
+.register-content {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-}
-
-.content .thumb {
-    display: flex;
-    justify-content: center;
     margin-top: 6em;
 }
 
-.content form {
-    margin: 20px 0 0;
+.register-content .userInformations {
+    margin-top: 15px;
     width: 100%;
-    max-width: 280px;
+    width: 350px;
     display: flex;
     flex-direction: column;
     align-items: stretch;
 }
 
-.content form input {
+.register-content .userInformations input {
     background: #fff;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -32,10 +23,10 @@
     padding: 0 15px;
     font-size: 14px;
     color: black;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
-.content form button {
+.register-content .userInformations button {
     margin: 10px 0 0;
     background: #0D55FF;
     border-radius: 5px;
@@ -47,27 +38,32 @@
     font-size: 16px;
 }
 
-.content form button:hover {
+.register-content .userInformations button:hover {
     background: #00C9DB;
     color: black;
     transition: 0.5s;
 }
 
-.registerButton {
-    margin-top: 20px;    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    font-size: 12px;
-    font-weight: bold;
-    color: white;
-}
-
-.registerButton a {
+.register-content .thumbnail label {
+    border: 1px dashed #ddd;
+    background-size: contain;
     cursor: pointer;
+    height: 200px;
+    width: 200px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.registerButton a:hover {
-    text-decoration: underline;
+.register-content .thumbnail label input {
+    display: none;
+}
+
+.register-content .thumbnail .has-thumbnail {
+    border: 0;
+}
+
+.register-content .thumbnail .has-thumbnail  img {
+    display: none;
 }

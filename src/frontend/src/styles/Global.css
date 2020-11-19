@@ -10,9 +10,9 @@
 
 body {
     background-image: url('../assets/background.jpg');
-    background-position: initial;
-    background-repeat: no-repeat;
-    background-size: cover;
+    /* background-position: initial; */
+    background-repeat: repeat-y;
+    /* background-size: cover; */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }

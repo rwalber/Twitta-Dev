@@ -1,26 +1,42 @@
 const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
-
 const routes = require('./routes');
+const path = require('path');
 
 const twittaDEV = express();
 
-const server = require('http').Server(twittaDEV);
+const parser = require('body-parser');
+const urlencodedParser = parser.urlencoded({extended : false});
 
-const socket = require('socket.io')(server);
+const server = require('http').Server(twittaDEV);
+const io = require('socket.io')(server);
 
 const url = "mongodb+srv://root:root@twittadev.58xby.mongodb.net/twittaDEV?retryWrites=true&w=majority";
 
-mongoose.connect( url, { useNewUrlParser: true });
+mongoose.connect( url, { 
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+});
 
 twittaDEV.use( (request, response, next) => {
-    request.socket = socket;
+    request.io = io;
     return next();
 });
 
-twittaDEV.use(express.json());
+io.on('connect', function(socket){
+    console.log('Client connected: '+socket.id);
+}, err => {
+    console.log(err);
+});
+
 twittaDEV.use(cors());
+
+twittaDEV.use(parser.json());
+twittaDEV.use(urlencodedParser)
+
+twittaDEV.use('/files', express.static(path.resolve(__dirname, 'uploads')));
+twittaDEV.use(express.json());
 twittaDEV.use(routes);
 
-server.listen(3000);
+server.listen(3333);

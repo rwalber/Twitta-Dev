@@ -9,7 +9,7 @@ module.exports = {
         
         await tweet.save();
 
-        request.socket.emit('Like', tweet);
+        request.io.emit('Like', tweet);
         
         return response.json(tweet);
     },

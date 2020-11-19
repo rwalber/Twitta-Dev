@@ -1,0 +1,10 @@
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+.navbar img {
+    width: 3%;
+    padding: 8px;
+}

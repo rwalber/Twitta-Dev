@@ -1,7 +1,7 @@
 const Tweet = require('../models/Tweet');
 
 module.exports = {
-    
+
     async listComents(request, response) {
         const tweet = await Tweet.findById(request.params.id);
 
@@ -15,7 +15,7 @@ module.exports = {
 
         await tweet.save();
 
-        request.socket.emit('New Coment', tweet)
+        request.io.emit('NewComent', tweet)
 
         return response.json(tweet);
     },
