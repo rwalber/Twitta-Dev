@@ -1,18 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import moment from 'moment';
-import io from 'socket.io-client';
 
 import LikeService from '../services/LikeService';
 import Coment from '../components/Coment';
 
 import '../styles/Tweet.css';
 
-import DeleteIcon from '../assets/Delete.png';
 import LikeIcon from '../assets/Like.png';
 import ComentIcon from '../assets/Coment.png';
 
-function Tweet({ tweet, socket }) {
+function Tweet({ tweet }) {
     
     const [coment, setComent] = useState(false);
     const [TweetContent, setTweetContent] = useState(tweet);
@@ -21,23 +19,12 @@ function Tweet({ tweet, socket }) {
         await LikeService.createLike(tweet._id);
     }
 
-    // useEffect( () => {
-    //     socket.on('Like', data => {
-    //         // setTweetContent(tweet._id === data._id ? {likes: 10} : tweet)
-    //         // console.log(data);
-    //     });
-    // }, []);
-    
     function comentTweet() {
         if(coment) {
             setComent(false);
         } else {
             setComent(true);
         }
-    }
-
-    function deleteTweet() {
-        console.log("DELETE");
     }
 
     return(
@@ -86,9 +73,6 @@ function Tweet({ tweet, socket }) {
                     <img src={ ComentIcon } alt="Coment ;)"/>
                 </a>
 
-                <a onClick = { deleteTweet } >
-                    <img src={ DeleteIcon } alt="Delete tweet"/>
-                </a>
             </div>        
         </div>
 
