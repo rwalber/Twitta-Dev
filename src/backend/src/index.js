@@ -7,7 +7,9 @@ const fs = require('fs');
 
 const credentials = {
     key: fs.readFileSync('key.pem'),
-    cert: fs.readFileSync('cert.pem')
+    cert: fs.readFileSync('cert.pem'),
+    requestCert: false,
+    rejectUnauthorized: false
 };
 
 const twittaDEV = express();
