@@ -8,7 +8,11 @@ module.exports = {
         if (user) {
             password = crypto.createHmac('sha256', data.password).update('anything').digest('hex');
             if (password === user.password) {
-                return response.json(user);
+                let userData = {
+                    thumbnail: user.thumbnail,
+                    name: user.name
+                }
+                return response.json(userData);
             } else {
                 return response.json('Login or password incorrect.');
             }

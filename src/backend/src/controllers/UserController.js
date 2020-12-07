@@ -6,12 +6,11 @@ module.exports = {
     async create(request, response) {
         
         const userData = request.body;
-        const file  = request.file;
 
         let passwordCrypto = crypto.createHmac('sha256', userData.password).update('anything').digest('hex');
         
         const newUser = {
-            thumbnail: file.filename,
+            thumbnail: userData.thumbnail,
             name: userData.name,
             email: userData.email,
             login: userData.login,

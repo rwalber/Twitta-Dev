@@ -2,7 +2,6 @@ const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
 const routes = require('./routes');
-const path = require('path');
 const fs = require('fs');
 
 const credentials = {
@@ -43,7 +42,6 @@ twittaDEV.use(cors());
 twittaDEV.use(parser.json());
 twittaDEV.use(urlencodedParser)
 
-twittaDEV.use('/files', express.static(path.resolve(__dirname, 'uploads')));
 twittaDEV.use(express.json());
 twittaDEV.use(routes);
 
