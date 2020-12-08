@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 
 const TweetSchema = new mongoose.Schema({
     author: String,
-    thumbnail_url: String,
+    thumbnail: String,
     content: String,
     coments: [{
         author: String,
-        thumbnail_url: String,
+        thumbnail: String,
         content: String,
         createdAt: {
             type: Date,

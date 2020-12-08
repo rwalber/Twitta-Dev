@@ -12,7 +12,7 @@ function Timeline() {
 
   const [NewTweet, setNewTweet] = useState([]);
   const [Tweets, setTweets] = useState([]);
-  const [thumbnail_url, setThumbnail_url] = useState('');
+  const [user, setUser] = useState(JSON.parse(sessionStorage.getItem('user')));
   
   function inputChange(event) {
     setNewTweet(event.target.value);
@@ -20,8 +20,7 @@ function Timeline() {
 
   function submit(event) {
     if((NewTweet !== '') && (event.keyCode === 13 || event.type === 'click')) {
-      const author = sessionStorage.getItem('@TwittaDEV:name');
-      TweetService.create(NewTweet, author, thumbnail_url).then(() => setNewTweet(''));
+      TweetService.create(NewTweet, user.name, user.thumbnail).then(() => setNewTweet(''));
     }
   }
 
@@ -46,9 +45,6 @@ function Timeline() {
   }, [Tweets]);
     
   useEffect( () => {
-
-    setThumbnail_url(sessionStorage.getItem('@TwittaDEV:thumbnail'));
-    
     TweetService.show().then(async list => {
       await setTweets(list.data);
     });
@@ -67,11 +63,11 @@ function Timeline() {
             <div className="user">
               
               <div className="logo">
-                <img src={ thumbnail_url } alt=""/>
+                <img src={ "data:image/png;base64,"+user.thumbnail } alt=""/>
               </div>
 
               <div className="username">
-                <p>Hi, {sessionStorage.getItem('@TwittaDEV:name')}</p>
+                <p>Hi, { user.name }</p>
               </div>
               
             </div>

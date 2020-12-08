@@ -42,7 +42,7 @@ twittaDEV.use(cors());
 twittaDEV.use(parser.json());
 twittaDEV.use(urlencodedParser)
 
-twittaDEV.use(express.json());
+twittaDEV.use(express.json({limit: '50mb'}));
 twittaDEV.use(routes);
 
 server.listen(3333);

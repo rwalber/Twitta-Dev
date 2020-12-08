@@ -6,8 +6,8 @@ export default {
         return await Api.get('tweets');
     },
 
-    async create(content, author, thumbnail_url) {
-        await Api.post('tweets', { content, author, thumbnail_url });
+    async create(content, author, thumbnail) {
+        await Api.post('tweets', { content, author, thumbnail });
     },
 
     async remove(idTweet) {

@@ -8,7 +8,6 @@ module.exports = {
         const userData = request.body;
 
         let passwordCrypto = crypto.createHmac('sha256', userData.password).update('anything').digest('hex');
-        
         const newUser = {
             thumbnail: userData.thumbnail,
             name: userData.name,

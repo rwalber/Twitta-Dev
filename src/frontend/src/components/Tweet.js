@@ -16,7 +16,7 @@ function Tweet({ tweet }) {
     const [TweetContent, setTweetContent] = useState(tweet);
 
     async function likeTweet() {
-        await LikeService.createLike(tweet._id);
+        await LikeService.createLike(TweetContent._id);
     }
 
     function comentTweet() {
@@ -34,7 +34,7 @@ function Tweet({ tweet }) {
             <div className="tweetContent">
                 
                 <div className="avatar">
-                    <img src={ tweet.thumbnail_url } alt=""/>
+                    <img src={ "data:image/png;base64,"+TweetContent.thumbnail } alt=""/>
                 </div>
 
                 <div className="text">
@@ -83,7 +83,7 @@ function Tweet({ tweet }) {
             unmountOnExit
             appear>
             
-            <Coment idTweet = {tweet._id} />
+            <Coment idTweet = {TweetContent._id} />
         
         </CSSTransition>
       </>

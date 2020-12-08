@@ -6,10 +6,9 @@ import RegisterService from '../services/RegisterService';
 import '../styles/Register.css';
 
 import Camera from '../assets/camera.svg';
-import DefaltThumbnail from '../assets/DefaultUser.png';
 
 function Register( { history } ) {
-    
+
     const [thumbnail, setThumbnail] = useState(null);
 
     const [name, setName] = useState();
@@ -21,11 +20,16 @@ function Register( { history } ) {
     const [password, setPassword] = useState();
 
     const preview = useMemo( () => {
-        return thumbnail ? URL.createObjectURL(thumbnail) : null;
+        return thumbnail ? "data:image/png;base64,"+thumbnail : null;
     }, [thumbnail]);
 
     function inputThumbnail(event) {
-        setThumbnail(event.target.files[0]);
+        let reader = new FileReader();
+        reader.readAsDataURL(event.target.files[0]);
+        reader.onload = (_event) => {
+            let thumbnailBase64 = reader.result.toString().split("base64,")[1];
+            setThumbnail(thumbnailBase64);
+        }
     }
     
     function inputName(event) {
@@ -47,13 +51,14 @@ function Register( { history } ) {
     async function submit(event) {
         event.preventDefault();
 
-        const user = new FormData();
-        user.append('thumbnail', thumbnail);
-        user.append('name', name);
-        user.append('email', email);
-        user.append('login', login);
-        user.append('password', password);
-        
+        const user = {
+            thumbnail: thumbnail,
+            name: name,
+            email: email,
+            login: login,
+            password: password
+        }
+
         RegisterService.create(user).then(usr => {
             if(usr) {
                 history.push('/')
@@ -70,8 +75,8 @@ function Register( { history } ) {
                 
                 <div className="thumbnail">
                     <label 
-                        style={{backgroundImage: `url(${preview})`}} 
-                        className = {thumbnail ? 'has-thumbnail' : ''}
+                        style={{ backgroundImage: `url(${ preview })` }} 
+                        className = { thumbnail ? 'has-thumbnail' : '' }
                     >    
                         <img src={ Camera } alt=""/>
                 
@@ -81,8 +86,6 @@ function Register( { history } ) {
                         />
                     </label>
                 </div>
-
-                {/* <form onSubmit = { submit }> */}
                     <div className="userInformations">
 
                         <input
@@ -118,8 +121,6 @@ function Register( { history } ) {
                         </button>
                     
                     </div>
-                {/* </form> */}
-
             </div>
             <NotificationContainer />
         </>

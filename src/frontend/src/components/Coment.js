@@ -9,6 +9,7 @@ function Coment({ idTweet }) {
   
   const [coments, setComents] = useState([]);
   const [newComent, setNewComent] = useState([]);
+  const [user, setUser] = useState(JSON.parse(sessionStorage.getItem('user')));
 
   function inputChange(event) {
     setNewComent(event.target.value);
@@ -18,7 +19,7 @@ function Coment({ idTweet }) {
     if(event.keyCode === 13) {
       const author = sessionStorage.getItem('@TwittaDEV:name');
       const thumbnail_url = sessionStorage.getItem('@TwittaDEV:thumbnail');
-      ComentService.createComent(idTweet, newComent, author, thumbnail_url).then(() => setNewComent(''));
+      ComentService.createComent(idTweet, newComent, user.name, user.thumbnail).then(() => setNewComent(''));
     }
   }
 
@@ -38,7 +39,7 @@ function Coment({ idTweet }) {
           <div className="comentContent">
             
             <div className="avatar">
-              <img src={ cmt.thumbnail_url } alt=""/>
+              <img src={ "data:image/png;base64,"+cmt.thumbnail } alt=""/>
             </div>
 
             <div className="text">

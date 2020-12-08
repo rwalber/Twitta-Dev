@@ -29,10 +29,7 @@ function Login( { history } ) {
             if(user.data === 'Login or password incorrect.') {
                 NotificationManager.error('Login or password incorrect.');
             } else {
-                console.log(user);
-                sessionStorage.setItem('@TwittaDEV:id', user.data._id);
-                sessionStorage.setItem('@TwittaDEV:name', user.data.name);
-                sessionStorage.setItem('@TwittaDEV:thumbnail', user.data.thumbnail_url);
+                sessionStorage.setItem('user', JSON.stringify(user.data));
                 history.push('/timeline');
             }
         }

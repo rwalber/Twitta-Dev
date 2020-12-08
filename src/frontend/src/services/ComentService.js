@@ -6,8 +6,8 @@ export default {
         return await Api.get(`/coments/${idTweet}`);
     },
 
-    async createComent(idTweet, content, author, thumbnail_url) {
-        await Api.post(`/coments/${idTweet}`, { content, author, thumbnail_url });
+    async createComent(idTweet, content, author, thumbnail) {
+        await Api.post(`/coments/${idTweet}`, { content, author, thumbnail });
     },
 
     async removeComent(idTweet) {
