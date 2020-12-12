@@ -14,7 +14,7 @@ const credentials = {
 const twittaDEV = express();
 
 const parser = require('body-parser');
-const urlencodedParser = parser.urlencoded({extended : false});
+const urlencodedParser = parser.urlencoded({limit: '200mb', extended: true});
 
 const server = require('https').createServer(credentials, twittaDEV);
 const io = require('socket.io')(server);
@@ -39,10 +39,12 @@ io.on('connect', function(socket){
 
 twittaDEV.use(cors());
 
-twittaDEV.use(parser.json());
 twittaDEV.use(urlencodedParser)
 
-twittaDEV.use(express.json({limit: '50mb'}));
+twittaDEV.use(parser.text({ limit: '200mb' }));
+
+twittaDEV.use(parser.json({ limit: '200mb' }));
+
 twittaDEV.use(routes);
 
 server.listen(3333);

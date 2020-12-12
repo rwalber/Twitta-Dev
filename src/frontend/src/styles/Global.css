@@ -12,6 +12,7 @@ body {
     background-image: url('../assets/background.jpg');
     /* background-position: initial; */
     background-repeat: repeat-y;
+    background-repeat: repeat-x;
     /* background-size: cover; */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
