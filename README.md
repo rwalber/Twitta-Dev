@@ -1,8 +1,13 @@
 # Twitta-Dev
 
+#### What is application?
+
 Project in development
 
-##### Technologies used: ReactJS and NodeJS.
+##### Technologies used: 
+
+- ReactJS 
+- NodeJS.
 
 ![Screenshot](assets/1.png)
 
@@ -11,6 +16,10 @@ Project in development
 ![Screenshot](assets/3.png)
 
 ![Screenshot](assets/4.png)
+
+## Project Design
+
+![Screenshot](assets/5.png)
 
 ## Build project
 
